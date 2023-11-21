@@ -6,8 +6,10 @@ const places = document.querySelector('.places__list');
 
 // @todo: Функция создания карточки
 function createCard(card, callBackFunction) {
+
     const cardTemplate = document.querySelector('#card-template').content;
     const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
+    
     cardElement.querySelector('.card__title').textContent = card.name;
     cardElement.querySelector('.card__image').src = card.link;
 
