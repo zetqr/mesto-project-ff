@@ -28,7 +28,7 @@ function deleteCard(elem) {
 // @todo: Вывести карточки на страницу
 const len = initialCards.length;
 
-for (let i = 0; i < len; i++) {
-    const card = createCard(initialCards[i], deleteCard);
+initialCards.forEach((cardElement) => {
+    const card = createCard(cardElement, deleteCard);
     places.append(card);
-};
+});
