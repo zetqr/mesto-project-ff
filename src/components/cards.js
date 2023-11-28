@@ -1,3 +1,11 @@
+// в файле card.js описаны функции для работы с карточками: 
+//функция создания карточки, 
+//функции-обработчики событий удаления и лайка карточки;
+//описан массив карточек, отображаемых на странице;
+
+import '../pages/index.css';
+import '/src/components/cards.js'
+
 const initialCards = [
     {
       name: "Архыз",
@@ -24,3 +32,34 @@ const initialCards = [
       link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
     }
 ];
+
+
+
+// Функция создания карточки
+function createCard(card, deleteCardFunction) {
+
+    // DOM узлы
+    const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
+
+    cardElement.querySelector('.card__title').textContent = card.name;
+    cardElement.querySelector('.card__image').src = card.link;
+    cardElement.querySelector('.card__image').alt = card.name;
+
+    const deleteButton = cardElement.querySelector('.card__delete-button');
+
+    deleteButton.addEventListener('click', function () {
+        deleteCardFunction(cardElement);
+    });
+
+    return cardElement;
+};
+
+// Функция удаления карточки
+function deleteCard(elem) {
+    elem.remove();
+};
+
+
+
+// MAKE AN EXPORT OF CARDS
+// also create like and delete functions in here and export them
