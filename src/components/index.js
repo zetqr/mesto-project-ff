@@ -1,3 +1,6 @@
+import '../pages/index.css';
+import '/src/scripts/cards.js'
+
 // выбрать темплейт карточки
 const cardTemplate = document.querySelector('#card-template').content;
 
