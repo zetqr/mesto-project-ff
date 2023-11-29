@@ -3,8 +3,6 @@
 //функции-обработчики событий удаления и лайка карточки;
 //описан массив карточек, отображаемых на странице;
 
-import '../pages/index.css';
-import '/src/components/cards.js'
 
 const initialCards = [
     {
@@ -33,6 +31,8 @@ const initialCards = [
     }
 ];
 
+// выбрать темплейт карточки
+const cardTemplate = document.querySelector('#card-template').content;
 
 
 // Функция создания карточки
@@ -62,4 +62,5 @@ function deleteCard(elem) {
 
 
 // MAKE AN EXPORT OF CARDS
+export {createCard, deleteCard, initialCards}
 // also create like and delete functions in here and export them

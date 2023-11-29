@@ -6,8 +6,8 @@
 Также в index.js находится код, который отвечает 
 за отображение шести карточек при открытии страницы.*/
 import '../pages/index.css';
-// выбрать темплейт карточки
-const cardTemplate = document.querySelector('#card-template').content;
+import {createCard, deleteCard, initialCards} from '../components/cards.js';
+
 
 // выбрать элемент, в ктором будут находиться карточки
 const places = document.querySelector('.places__list');
