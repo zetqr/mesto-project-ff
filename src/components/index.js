@@ -1,10 +1,3 @@
-/* в файле index.js описана инициализация приложения и 
-основная логика страницы: поиск DOM-элементов на странице 
-и навешивание на них обработчиков событий; обработчики отправки форм, 
-функция-обработчик события открытия модального окна для редактирования 
-профиля; функция открытия модального окна изображения карточки. 
-Также в index.js находится код, который отвечает 
-за отображение шести карточек при открытии страницы.*/
 import '../pages/index.css';
 import {createCard, deleteCard} from '../components/cards.js';
 import initialCards from './imageData.js';
@@ -20,7 +13,6 @@ const popupTypeEdit = document.querySelector('.popup_type_edit');
 const popupTypeNewCard = document.querySelector('.popup_type_new-card');
 const popupTypeImage = document.querySelector('.popup_type_image');
 const popupCloseButton = document.querySelector('.popup__close');
-
 
 // выбрать элемент, в ктором будут находиться карточки
 const places = document.querySelector('.places__list');
@@ -38,3 +30,22 @@ cardImage.forEach((image) => {
 
 openModal(editButton, popupTypeEdit, closeModal);
 openModal(addButton, popupTypeNewCard, closeModal);
+
+const profileName = document.querySelector('.profile__title').textContent;
+const jobDescription = document.querySelector('.profile__description').textContent;
+
+const inputName = document.querySelector('.popup__input_type_name');
+inputName.placeholder = profileName;
+
+const inputDescription = document.querySelector('.popup__input_type_description');
+inputDescription.placeholder = jobDescription;
+
+
+
+/* в файле index.js описана инициализация приложения и 
+основная логика страницы: поиск DOM-элементов на странице 
+и навешивание на них обработчиков событий; обработчики отправки форм, 
+функция-обработчик события открытия модального окна для редактирования 
+профиля; функция открытия модального окна изображения карточки. 
+Также в index.js находится код, который отвечает 
+за отображение шести карточек при открытии страницы.*/
