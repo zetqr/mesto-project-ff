@@ -4,7 +4,7 @@
   "description": "https://github.com/zetqr/mesto-project-ff.git",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "author": "",
