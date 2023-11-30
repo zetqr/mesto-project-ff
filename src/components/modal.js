@@ -1,8 +1,8 @@
 function openModal (domElement, popupElement, closePopupFunction) {
 
+    // open image popup on image click
     domElement.addEventListener('click', function () {
       if (domElement.classList.contains('card__image')) {
-       
         const imageLink = domElement.src;
         const imageName = domElement.alt;
         const imageElement = popupElement.querySelector('.popup__image');
@@ -10,23 +10,31 @@ function openModal (domElement, popupElement, closePopupFunction) {
         imageElement.src = imageLink;
         imageCaption.textContent = imageName;
         popupElement.classList.add('popup__image');
-
     }
 
       popupElement.classList.add('popup_is-opened');
-      // close popup on button click
+
       const closePopupButton = popupElement.querySelector('.popup__close');
-      closePopupButton.addEventListener('click', function () {
-        closePopupFunction(popupElement);
-        document.removeEventListener('keydown', pressEscKey);
-        popupElement.removeEventListener('click', pressOverlayClick);
-      });
+      if (closePopupButton) {
+          closePopupButton.addEventListener('click', function () {
+              closePopupFunction(popupElement);
+          });
+      }
+
+      // Check if .popup__button exists before adding event listener
+      const saveEditProfileButton = popupElement.querySelector('.popup__button');
+      if (saveEditProfileButton) {
+          saveEditProfileButton.addEventListener('click', function () {
+              closePopupFunction(popupElement);
+          });
+      }
       
       // escape closes popup
       const pressEscKey = function (event) {
         if (event.key === 'Escape') {
           closePopupFunction(popupElement);
         }
+        document.removeEventListener('keydown', pressEscKey);
       };
       document.addEventListener('keydown', pressEscKey); //
 
@@ -35,8 +43,10 @@ function openModal (domElement, popupElement, closePopupFunction) {
         if (event.target === popupElement) {
             closePopupFunction(popupElement);
         }
+        popupElement.removeEventListener('click', pressOverlayClick);
       };
       popupElement.addEventListener('click', pressOverlayClick);
+
 
   });
 }
