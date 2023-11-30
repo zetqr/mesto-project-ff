@@ -10,23 +10,27 @@ const popupTypeImage = document.querySelector('.popup_type_image');
 const places = document.querySelector('.places__list');
 
 
-
+// initilize placeholder cards and have the needed functionality 
 initialCards.forEach((cardElement) => {
     const card = createCard(cardElement, deleteCard, likeCard, imagePopup, popupTypeImage);
     places.append(card);
 });
 
+// make sure every card can be opened up even newly added oness
 const cardImage = document.querySelectorAll('.card__image');
 cardImage.forEach((image) => {
     openModal(image, popupTypeImage, closeModal);
 });
 
+// eneable checking for events
 openModal(editButton, popupTypeEdit, closeModal);
 openModal(addButton, popupTypeNewCard, closeModal);
+
 
 const profileName = document.querySelector('.profile__title').textContent;
 const jobDescription = document.querySelector('.profile__description').textContent;
 
+// make sure placeholder is updated after new values
 const inputName = document.querySelector('.popup__input_type_name');
 inputName.placeholder = profileName;
 
@@ -34,16 +38,15 @@ const inputDescription = document.querySelector('.popup__input_type_description'
 inputDescription.placeholder = jobDescription;
 
 
-// Находим форму в DOM
 const profileFormElement = document.querySelector('.popup_type_edit .popup__form[name="edit-profile"]');
 const cardFormElement = document.querySelector('.popup_type_new-card .popup__form[name="new-place"]');
 
-// Находим поля формы в DOM
 const profileNameInput = profileFormElement.querySelector('.popup__input_type_name');
 const jobInput = profileFormElement.querySelector('.popup__input_type_description');
 const cardNameInput = cardFormElement.querySelector('.popup__input_type_card-name');
 const cardUrlInput = cardFormElement.querySelector('.popup__input_type_url');
 
+// submit for profile edit button
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
 
@@ -60,6 +63,7 @@ function handleProfileFormSubmit(evt) {
     profileFormElement.reset();
 }
 
+// submit for card form edit button
 function handleCardFormSubmit(evt) {
     evt.preventDefault();
 
