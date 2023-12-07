@@ -1,19 +1,16 @@
-import { openModal, closeModal } from './modal.js';
-import { initialCards } from './cardsData.js';
-import { openPopupTypeImage } from './index.js';
-
 /** creates card and handles like button and makes sure image popus up on click
  * function to open image popup and path the image data to dom element.
- * @constructor
- * @param {array} card - array of image and links.
+ * @param {object} card - array of image and links.
  * @param {function} deleteHandler - delete card function.
  * @param {function} likeCardHandler - like card function.
  * @param {function} onOpenImagePopup - image popup function that activates at event.
  */
+
+const cardTemplate = document.querySelector('#card-template').content;
+
 function createCard(card, deleteHandler, likeCardHandler, onOpenImagePopup) {
 
     // variable declarations
-    const cardTemplate = document.querySelector('#card-template').content;
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
     const cardTitleElement = cardElement.querySelector('.card__title');
     const cardImageElement = cardElement.querySelector('.card__image');
@@ -42,7 +39,6 @@ function createCard(card, deleteHandler, likeCardHandler, onOpenImagePopup) {
 };
 
 /** remove card function
- * @constructor
  * @param elem - dom element to remove
  */
 function deleteCard(elem) {
@@ -50,7 +46,6 @@ function deleteCard(elem) {
 }
 
 /** like card function
- * @constructor
  * @param elem - dom element to add css class to
  */
 function likeCard(elem) {

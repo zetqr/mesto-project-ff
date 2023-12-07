@@ -4,6 +4,12 @@
   "description": "https://github.com/zetqr/mesto-project-ff.git",
   "main": "index.js",
   "scripts": {
+    "check": "prettier --check './src/**/*.{html,css,js}'",
+    "format": "prettier --write './src/**/*.{html,css,js}'",
+    "lint": "stylelint './src/**/*.css'",
+    "lintfix": "stylelint './src/**/*.css' --fix",
+    "checkAll": "npm run check && npm run lint",
+    "fixAll": "npm run format && npm run lintfix",
     "build": "webpack --mode production",
     "dev": "webpack serve"
   },
@@ -20,6 +26,8 @@
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.3",
+    "prettier": "^3.1.0",
+    "stylelint": "^15.11.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"

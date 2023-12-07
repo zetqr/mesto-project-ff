@@ -1,5 +1,4 @@
 /** open popup  function
- * @constructor
  * @param popupElement - dom element to open as a popup
  */
 function openModal(popupElement) {
@@ -10,12 +9,11 @@ function openModal(popupElement) {
 }
 
 /** close popup function
- * @constructor
  * @param popupElement - dom element to open as a popup
  */
 function closeModal(popupElement) {
   document.removeEventListener('keydown', closeModalByEsc);
-  setTimeout(() => popupElement.classList.remove('popup_is-opened'), 0);
+  popupElement.classList.remove('popup_is-opened');
 }
 
 /** close function by pressing ESC key*/
@@ -35,14 +33,13 @@ const pressOverlayClick = (event) => {
 };
 
 /** event listeners function to catch click on overlay and click on close popup button
- * @constructor
  * @param popupElement - dom element to activate an event on click
  */
 function setCloseModalWindowEventListeners(popupElement) {
   const closeButton = popupElement.querySelector('.popup__close');
   
   closeButton.addEventListener('click', () => closeModal(popupElement));
-  document.addEventListener('click', pressOverlayClick);
+  popupElement.addEventListener('click', pressOverlayClick);
   
 }
 
