@@ -85,9 +85,10 @@ function handleCardFormSubmit(evt) {
 
 /** EVENT OPEN for button to edit profile */
 profileEditButton.addEventListener('click', () => {
+    inputName.value = profileTitle.textContent;
+    inputDescription.value = profileDescription.textContent;
     openModal(popupTypeEdit);
 });
-
 /** EVENT OPEN for button to create new card */
 addNewCardButton.addEventListener('click', () => {
     openModal(popupTypeNewCard);
