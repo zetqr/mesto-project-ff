@@ -108,7 +108,7 @@ cardImageCloseButton.addEventListener('click', () => {
     closeModal(popupTypeImage);
 });
 
-/** EVENT CLOSE on overlay click and close button for image card popup */
+/** EVENT CLOSE on overlay click*/
 setCloseModalWindowEventListeners(popupTypeEdit);
 setCloseModalWindowEventListeners(popupTypeNewCard);    
 setCloseModalWindowEventListeners(popupTypeImage);
