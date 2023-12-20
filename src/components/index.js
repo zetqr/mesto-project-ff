@@ -2,6 +2,26 @@ import '../pages/index.css';
 import {createCard, deleteCard, likeCard} from './card.js';
 import { initialCards } from './cardsData.js';
 import {openModal, closeModal, setCloseModalWindowEventListeners} from './modal.js';
+import { enableValidation, clearValidation } from './validation.js';
+// WIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIPWIP
+const profileValidationConfig = {
+    formSelector: '.popup__form[name="edit-profile"]',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+};
+
+const cardValidationConfig = {
+    formSelector: '.popup__form[name="new-place"]',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+};
+
 
 /** profile editor popup dom elements */
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -37,6 +57,7 @@ const cardUrlInput = cardFormElement.querySelector('.popup__input_type_url');
 /** profile popup data dom elements */
 const inputName = document.querySelector('.popup__input_type_name');
 const inputDescription = document.querySelector('.popup__input_type_description');
+
 
 /** image popup function declaration */
 /**
@@ -88,10 +109,13 @@ profileEditButton.addEventListener('click', () => {
     inputName.value = profileTitle.textContent;
     inputDescription.value = profileDescription.textContent;
     openModal(popupTypeEdit);
+    clearValidation(profileFormElement, profileValidationConfig);
+
 });
 /** EVENT OPEN for button to create new card */
 addNewCardButton.addEventListener('click', () => {
     openModal(popupTypeNewCard);
+    clearValidation(cardFormElement, cardValidationConfig);
 });
 
 /** EVENT CLOSE for edit profile */
@@ -129,6 +153,11 @@ initialCards.forEach((cardElement) => {
 /** store default form edit data values when webpage loads */
 inputName.value = profileTitle.textContent;
 inputDescription.value = profileDescription.textContent;
+
+enableValidation(profileValidationConfig);
+
+// Enable validation for the card form
+enableValidation(cardValidationConfig);
 
 
 

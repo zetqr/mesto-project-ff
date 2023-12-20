@@ -1,3 +1,7 @@
+//wipwipwipwipwipwipwipwipwipwipwipwipwipwipwipwipwipwipwipwip
+
+const cardTemplate = document.querySelector('#card-template').content;
+
 /** creates card and handles like button and makes sure image popus up on click
  * function to open image popup and path the image data to dom element.
  * @param {object} card - array of image and links.
@@ -5,9 +9,6 @@
  * @param {function} likeCardHandler - like card function.
  * @param {function} onOpenImagePopup - image popup function that activates at event.
  */
-
-const cardTemplate = document.querySelector('#card-template').content;
-
 function createCard(card, deleteHandler, likeCardHandler, onOpenImagePopup) {
 
     // variable declarations
