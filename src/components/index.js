@@ -49,8 +49,6 @@ const image = popupTypeImage.querySelector('.popup__image');
 const imageDescription = popupTypeImage.querySelector('.popup__caption');
 const deleteCardElement = document.querySelector('.popup.popup_type_delete-card');
 
-// function createCard(cardData, deleteHandler, likeCardHandler, onOpenImagePopup, userId) {
-
 function renderCards(userId, initialCards) {
   initialCards.forEach(card => {
     placesContainer.append(createCard(card, deleteHandler, likeCard, onOpenImagePopup, userId));
